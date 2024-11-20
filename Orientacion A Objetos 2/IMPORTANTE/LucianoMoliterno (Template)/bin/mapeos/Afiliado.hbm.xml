@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.Afiliado" table="afiliado">
+		<id column="id_afiliado" name="idAfiliado">
+			<generator class="identity" />
+		</id>
+		<property name="nombre" column="nombre" type="string" />
+		<property name="apellido" column="apellido" type="string" />
+		<property name="nroAfiliado" column="nro_afiliado" type="string" />
+		<property name="fechaAlta" column="fecha_alta" type="LocalDate" />
+		<many-to-one name="plan" class="datos.Plan" column="id_plan"
+			not-null="true" />
+	</class>
+</hibernate-mapping>
