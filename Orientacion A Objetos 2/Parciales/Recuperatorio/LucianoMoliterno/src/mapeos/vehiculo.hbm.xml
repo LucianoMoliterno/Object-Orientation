@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="datos.Vehiculo" table="Vehiculo">
+	<id column="idVehiculo" name="idVehiculo">
+		<generator class="identity"/>
+	</id>
+	<property column="patente" name="patente" type="string"/>
+	
+	<joined-subclass name="datos.Moto" table="Moto">  
+		<key column="idMoto"/>
+		<property column="esMensajeria" name="esMensajeria" type="boolean"/>
+    </joined-subclass>
+	<joined-subclass name="datos.Automovil" table="Automovil"> 
+		<key column="idAutomovil"/>
+		<property column="esPickup" name="esPickUp" type="boolean"/>    	
+	</joined-subclass>
+</class>
+</hibernate-mapping>
